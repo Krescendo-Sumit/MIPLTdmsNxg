@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sowing"
+    android:background="#FFFFFF"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:isScrollContainer="true">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/layout_border"
+            android:layout_marginTop="65dp">
+
+            <TextView
+                android:id="@+id/lblTrial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trial Code "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/lbl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/txtTrialCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black" />
+
+
+
+
+            <TextView
+                android:id="@+id/lblProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblTrial"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/lbl12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl2"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/txtProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtTrialCode"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/lblLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblProduct"/>
+
+            <TextView
+                android:id="@+id/lbl9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl12"/>
+
+            <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtProduct"/>
+
+            <TextView
+                android:id="@+id/lblrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No.of rows/entry"
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblLocation"/>
+
+            <TextView
+                android:id="@+id/lbl3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl9"/>
+
+            <TextView
+                android:id="@+id/txtrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtLocation"/>
+
+            <TextView
+                android:id="@+id/lblrowlenght"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Row length"
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblrow"/>
+
+            <TextView
+                android:id="@+id/lbl4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl3"/>
+
+            <TextView
+                android:id="@+id/txtrowlenght"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtrow"/>
+
+            <TextView
+                android:id="@+id/lblrrSpecing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Row To Row Spacing "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblrowlenght"/>
+
+            <TextView
+                android:id="@+id/lbl5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl4"/>
+
+            <TextView
+                android:id="@+id/txtrrSpecing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtrowlenght"/>
+
+            <TextView
+                android:id="@+id/lblppSpecing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plant to plant spacing  "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblrrSpecing"/>
+
+            <TextView
+                android:id="@+id/lbl6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl5"/>
+
+            <TextView
+                android:id="@+id/txtppSpecing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtrrSpecing"/>
+
+            <TextView
+                android:id="@+id/lblreplec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. of replications "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtppSpecing"/>
+
+            <TextView
+                android:id="@+id/lbl7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl6"/>
+
+            <TextView
+                android:id="@+id/txtreplec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtppSpecing"/>
+
+            <TextView
+                android:id="@+id/lbltotEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total No. of entries "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblreplec"/>
+
+            <TextView
+                android:id="@+id/lbl8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl7"/>
+
+            <TextView
+                android:id="@+id/txttotEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtreplec"/>
+
+            <TextView
+                android:id="@+id/lblPlotStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plot Start - End "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbltotEntry"/>
+
+            <TextView
+                android:id="@+id/lbl10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl8"/>
+
+            <TextView
+                android:id="@+id/txtplotstart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txttotEntry"/>
+            <TextView
+                android:id="@+id/lblPlotSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plot Size "
+                android:layout_marginLeft="30dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lblPlotStart"/>
+
+            <TextView
+                android:id="@+id/lbl11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=": "
+                android:layout_marginLeft="190dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/lbl10"/>
+
+            <TextView
+                android:id="@+id/txtPlotSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="200dp"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/txtplotstart"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/layout_border">
+
+            <EditText
+                android:id="@+id/txtFarmerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:ems="10"
+                android:hint="Enter Farmer Name"
+                android:inputType="text"
+                android:text=""
+                android:textColorLink="@android:color/black" />
+
+            <EditText
+                android:id="@+id/txtVillage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtFarmerName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:ems="10"
+                android:hint="Enter Village Name"
+                android:inputType="text"
+                android:text=""
+                android:textColorLink="@android:color/black" />
+
+            <EditText
+                android:id="@+id/txtGeoVillage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtVillage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:ems="10"
+                android:hint=""
+                android:text=""
+                android:textColorLink="@android:color/darker_gray"
+                android:focusable="false"/>
+
+            <EditText
+                android:id="@+id/txtContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtGeoVillage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:ems="10"
+                android:hint="Enter Mobile No."
+                android:inputType="number"
+                android:text=""
+                android:textColorLink="@android:color/black"
+                android:maxLength="10"
+                />
+
+            <EditText
+                android:id="@+id/txtStartNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtContact"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:ems="10"
+                android:hint="Starting Point Note"
+                android:inputType="text"
+                android:text=""
+                android:textColorLink="@android:color/black" />
+            <EditText
+                android:id="@+id/txtNursaryDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtStartNote"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/calender"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Select Nursery Sowing Date"
+                android:inputType="date"
+                android:text=""
+                android:textColorLink="@android:color/black"
+                />
+
+            <!--<EditText
+                android:id="@+id/txtSowingDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtNursaryDate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/calender"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Select Date of Transplanting"
+                android:inputType="date"
+                android:text=""
+                android:textColorLink="@android:color/black" />-->
+
+            <EditText
+                android:id="@+id/txtArea"
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txtFarmerName"
+                android:background="@drawable/border_style"
+                android:drawableLeft="@drawable/location"
+                android:ems="10"
+                android:hint="Area"
+                android:inputType="text"
+                android:text=""
+                android:textColorLink="@android:color/black"
+                android:focusableInTouchMode="false"
+                android:visibility="gone"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/layout_border"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Save"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="199dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/buttonbordet"
+                android:drawableLeft="@drawable/save" />
+
+            <!--<Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Update"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="199dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/buttonbordet"
+                android:drawableLeft="@drawable/save"
+                android:visibility="gone"/>-->
+
+            <Button
+                android:id="@+id/BtnFieldTag"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="190dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonbordet"
+                android:drawableLeft="@drawable/location"
+                android:text="Tag Area"
+                android:layout_marginTop="8dp"
+                android:enabled="false"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_transplant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTransplant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Transplanting Information"
+                android:textColorLink="@android:color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/black"/>
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:background="@drawable/layout_border">
+
+                <EditText
+                    android:id="@+id/txtFarmerNameT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:hint="Enter Farmer Name"
+                    android:inputType="text"
+                    android:text=""
+                    android:textColorLink="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/txtVillageT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtFarmerNameT"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:hint="Enter Village Name"
+                    android:inputType="text"
+                    android:text=""
+                    android:textColorLink="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/txtGeoVillageT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtVillageT"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:hint=""
+                    android:text=""
+                    android:textColorLink="@android:color/darker_gray"
+                    android:focusable="false"/>
+
+                <EditText
+                    android:id="@+id/txtContactT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtGeoVillageT"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:hint="Enter Mobile No."
+                    android:inputType="number"
+                    android:text=""
+                    android:textColorLink="@android:color/black"
+                    android:maxLength="10"
+                    />
+
+                <EditText
+                    android:id="@+id/txtStartNoteT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtContactT"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_style"
+                    android:ems="10"
+                    android:hint="Starting Point Note"
+                    android:inputType="text"
+                    android:text=""
+                    android:textColorLink="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/tv_transplant_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtStartNoteT"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border_style"
+                    android:drawableLeft="@drawable/calender"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="Select Date of Transplanting"
+                    android:inputType="date"
+                    android:text=""
+                    android:textColorLink="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/txtAreaT"
+                    android:layout_width="147dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/txtFarmerNameT"
+                    android:background="@drawable/border_style"
+                    android:drawableLeft="@drawable/location"
+                    android:ems="10"
+                    android:hint="Area"
+                    android:inputType="text"
+                    android:text=""
+                    android:textColorLink="@android:color/black"
+                    android:focusableInTouchMode="false"
+                    android:visibility="gone"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/layout_border"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btnSaveT"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Save"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="199dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/buttonbordet"
+                    android:drawableLeft="@drawable/save" />
+
+                <Button
+                    android:id="@+id/BtnFieldTagT"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="190dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttonbordet"
+                    android:drawableLeft="@drawable/location"
+                    android:text="Tag Area"
+                    android:layout_marginTop="8dp"
+                    android:enabled="false"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

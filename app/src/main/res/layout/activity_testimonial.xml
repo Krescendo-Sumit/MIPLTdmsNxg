@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/layout1">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/layout_border"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+
+        <TextView
+            android:id="@+id/lblFname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Farmer Name"
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lbl6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txtFname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lblLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Village "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/lblFname"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lbl14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/lbl6"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/txtFname"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lblTrial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Trial Code"
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:layout_below="@+id/lblLocation"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lbl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:layout_below="@+id/lbl14"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtTrialCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:layout_below="@+id/txtLocation"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/lblProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblLocation"
+            android:layout_marginLeft="200dp"
+            android:fontFamily="sans-serif"
+            android:text="Product "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lbl12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl14"
+            android:layout_marginLeft="255dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/txtProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtLocation"
+            android:layout_marginLeft="265dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:textAllCaps="true"/>
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/lblSowing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblProduct"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Sowing Date "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lbl15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl2"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txtSowing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtProduct"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lblPlotNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblSowing"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Plot No "
+            android:textColor="@android:color/holo_red_dark"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lbl13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl15"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/holo_red_dark"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/txtPlotNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtSowing"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/txtstartplot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtSowing"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_dark"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lblEndPlotNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblPlotNo"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="End Plot No "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lblCordinate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblPlotNo"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lbl16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl13"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/txtENDPlotNo"
+            android:layout_width="80px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPlotNo"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/txtPlotNo1"
+            android:layout_width="80px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtSowing"
+            android:layout_marginLeft="130dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/holo_red_dark"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+        <EditText
+            android:id="@+id/txtEnerPlot"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="0dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/border_style"
+            android:layout_below="@+id/lblProduct"
+            android:layout_marginTop="80px"
+            android:hint="Plot No"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonbordet"
+            android:text="GO"
+            android:layout_below="@id/txtProduct"
+            android:layout_marginTop="80px"/>
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="5dp" />
+
+    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_above="@+id/layout3"
+        android:layout_below="@id/layout1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@drawable/layout_border">
+
+            <ScrollView
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp">
+
+                <LinearLayout
+                    android:id="@+id/my_linear_layout1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:orientation="vertical"></LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/layout3"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="@drawable/layout_border"
+            android:gravity="center"
+            android:weightSum="4">
+
+
+            <Button
+                android:id="@+id/btnPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/buttonbordet"
+                android:text="Photo"
+                android:textSize="15dp"
+                />
+
+            <Button
+                android:id="@+id/btnSaveObs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonbordet"
+                android:text="Save and Next"
+                android:textSize="15dp"
+                />
+
+            <Button
+                android:id="@+id/btnPreObs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/buttonbordet"
+                android:text="Back"
+                android:textSize="15dp"
+                />
+
+            <Button
+                android:id="@+id/btnNextObs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/buttonbordet"
+                android:text="Next"
+                android:textSize="15dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

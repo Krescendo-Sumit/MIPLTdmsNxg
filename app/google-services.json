@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "342311160198",
+    "firebase_url": "https://tdmsmobileapp.firebaseio.com",
+    "project_id": "tdmsmobileapp",
+    "storage_bucket": "tdmsmobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342311160198:android:a55a3d6db8fc422b4e0407",
+        "android_client_info": {
+          "package_name": "com.tdms.mahyco.nxg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342311160198-11m1kehf580tku25iblbsjmdktujggqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCADjjRMWhII1rt1V3uLTTe6MZuq1xdGTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342311160198-11m1kehf580tku25iblbsjmdktujggqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

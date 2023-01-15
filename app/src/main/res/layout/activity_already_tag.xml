@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".alreadyTag"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/layout_border"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/lblTrial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trial Code "
+            android:layout_marginLeft="0dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="13sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/lblLocation"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lbl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=": "
+            android:layout_marginLeft="100dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="13sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/lbl14"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtTrialCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="110dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="13sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/txtLocation"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lblFname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Farmer Name"
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lbl6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/txtFname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lblLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Village "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_below="@+id/lblFname"/>
+
+        <TextView
+            android:id="@+id/lbl14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/lbl6"/>
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_below="@+id/txtFname"/>
+
+
+
+        <TextView
+            android:id="@+id/lblProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblLocation"
+            android:layout_marginLeft="200dp"
+            android:fontFamily="sans-serif"
+            android:text="Product "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lbl12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl14"
+            android:layout_marginLeft="255dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/txtProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtLocation"
+            android:layout_marginLeft="265dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:visibility="invisible"/>
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/lblSowing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblProduct"
+            android:layout_marginLeft="0dp"
+            android:fontFamily="sans-serif"
+            android:text="Sowing Date "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/lbl15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl2"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtSowing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtProduct"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+    </RelativeLayout>
+
+    <WebView
+        android:layout_marginTop="110dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/wb1"
+        >
+    </WebView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationText"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:layout_below="@+id/wb1"
+        android:padding="10dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationArea"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:layout_below="@+id/locationText"
+        android:padding="10dp"
+        android:visibility="gone"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tag Location"
+        android:layout_below="@+id/locationArea"
+        android:padding="10dp"
+        android:id="@+id/getLocationBtn"
+        android:background="@drawable/buttonbordet"
+        android:drawableLeft="@drawable/location"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Tag"
+        android:layout_below="@+id/locationArea"
+        android:padding="10dp"
+        android:id="@+id/deleteLocationBtn"
+        android:background="@drawable/buttonbordet"
+        android:drawableLeft="@drawable/delete"
+        android:layout_marginLeft="200dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/lblareatext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Area In Acr : "
+        android:layout_marginLeft="30dp"
+        android:textColorLink="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/wb1"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:textAllCaps="true"/>
+
+    <TextView
+        android:id="@+id/lblareatext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Area Tagging Is Already Done !"
+        android:layout_marginLeft="30dp"
+        android:textColorLink="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_below="@+id/lblareatext"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textAllCaps="true"/>
+    <TextView
+        android:id="@+id/lblarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginLeft="120dp"
+        android:textColorLink="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/getLocationBtn"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Tag Data"
+        android:layout_below="@+id/lblarea"
+        android:padding="10dp"
+        android:id="@+id/BtnAreaSave"
+        android:background="@drawable/buttonbordet"
+        android:layout_marginLeft="30dp"
+        android:drawableLeft="@drawable/save"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
+
+
+
+</RelativeLayout>

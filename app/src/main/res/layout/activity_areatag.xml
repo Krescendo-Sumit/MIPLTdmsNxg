@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".areatag"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/lblDetail"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        android:text="fhfh"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+    <WebView
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/wb1"
+        >
+    </WebView>
+
+    <ScrollView
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="5dp"
+
+            android:orientation="vertical" >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                />
+
+
+
+            <TextView
+                android:id="@+id/lblLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:gravity="center_horizontal"
+                android:padding="1dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/liinout"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/buttonbordet"
+                    android:id="@+id/getLocationBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Tag Location"
+                    />
+
+                <Button
+                    android:id="@+id/btnClear"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/buttonbordet"
+                    android:paddingLeft="10dp"
+
+                    android:text="Clear  Tag"
+                    />
+                <Button
+                    android:id="@+id/btnUpload"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+
+
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/buttonbordet"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Upload On Server"
+
+
+                    />
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="Calculate"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/buttonbordet"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:id="@+id/btnCalulate"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/layout_border"
+                >
+
+            </RelativeLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/LinearLayout01"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:visibility="gone"
+                >
+                <ScrollView
+                    android:id="@+id/layout"
+                    android:layout_height="match_parent"
+                    android:scrollbars="horizontal|vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dip"
+                    android:scrollbarStyle="outsideInset"
+                    android:fillViewport="true">
+                    <HorizontalScrollView
+                        android:id="@+id/horizontalScrollView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:scrollbars="horizontal|vertical"  >
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:stretchColumns="*"
+                            android:scrollbars="horizontal"
+                            android:id="@+id/maintable" >
+                        </TableLayout>
+                    </HorizontalScrollView>
+                </ScrollView>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/footer" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_alignParentBottom="true" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/lblarea"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

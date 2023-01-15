@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".pld_not_sown">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+
+        android:background="@drawable/layout_border">
+
+        <TextView
+            android:id="@+id/lblTrial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="sans-serif"
+            android:text="Trial Code "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/lbl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:fontFamily="sans-serif"
+            android:text=": "
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtTrialCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:fontFamily="sans-serif"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textColorLink="@android:color/black"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/layout_border">
+
+        <RadioGroup
+            android:id="@+id/rbtGrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtNotSown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Sown" />
+
+            <RadioButton
+                android:id="@+id/rbtPLD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PLD" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/txtReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rbtGrp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/border_style"
+            android:ems="10"
+            android:hint="Enter Reason"
+            android:inputType="text"
+            android:text=""
+            android:textColorLink="@android:color/black" />
+
+        <Button
+            android:id="@+id/btnPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/txtReason"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonbordet"
+            android:text="Take Photo" />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_below="@+id/btnPhoto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/buttonbordet"
+        android:text="Save Reason" />
+
+</RelativeLayout>

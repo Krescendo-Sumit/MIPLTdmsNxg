@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:visible="false"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_download"
+            android:visible="false"
+
+            android:icon="@drawable/downlaod_green"
+            android:title="Download Data" />
+
+        <item
+            android:id="@+id/nav_DwdObservation"
+            android:icon="@drawable/downlaod_green"
+            android:visible="false"
+
+            android:title="Select Observation" />
+        <item
+            android:id="@+id/nav_area"
+            android:visible="false"
+            android:icon="@drawable/sowing"
+            android:title="Sowing &amp; Transplanting" />
+        <item
+            android:id="@+id/nav_observation"
+            android:visible="false"
+
+            android:icon="@drawable/observation"
+            android:title="Observation" />
+        <item
+            android:id="@+id/nav_validation"
+            android:icon="@drawable/validation"
+            android:title="Validation"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_upload"
+            android:visible="false"
+
+            android:icon="@drawable/upload_green"
+            android:title="Upload Data" />
+
+        <item
+            android:id="@+id/nav_report"
+            android:visible="false"
+
+            android:icon="@drawable/report"
+            android:title="Report" />
+        <item
+            android:id="@+id/nav_my_travel"
+            android:icon="@drawable/report"
+            android:title="My Travel"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_db"
+            android:icon="@drawable/report"
+            android:title="DB"
+            android:visible="false" />
+        <!--TODO Always false before Upload-->
+
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/map"
+            android:title="Map"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_reset_user"
+            android:icon="@drawable/ic_settings"
+            android:title="Reset User"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/logout"
+            android:title="Logout"
+
+            />
+    </group>
+
+
+</menu>

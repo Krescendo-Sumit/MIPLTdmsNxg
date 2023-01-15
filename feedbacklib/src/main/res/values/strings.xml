@@ -1,0 +1,19 @@
+<resources>
+    <string name="start_now">Start Now</string>
+    <string name="postpone">Later</string>
+    <string name="str_feed_title">We would love your feedback</string>
+    <string name="str_feed_desc1">Our goal is to make a platform that simplifies your workday.</string>
+    <string name="str_feed_desc2">You\'ve been using application for a while now, and we\'d love to know what you think about it.</string>
+    <string name="str_feed_desc3">We really appreciate  your feedback, Team Digital Strategy!</string>
+    <string name="submit">Submit</string>
+    <string name="str_ques">Question for feedback</string>
+    <string name="str_comment">My Feedback and comments</string>
+    <string name="write_here">Write here</string>
+    <string name="str_rating">""</string>
+    <string name="str_quid">Hidden Question Id</string>
+    <string name="api_failed">Something went wrong, please try again later.</string>
+    <string name="str_module">Write your module</string>
+    <string name="str_srno">SrNo</string>
+    <string name="no_internet">No network available</string>
+    <string name="str_heading">Heading</string> <!--0.0-->
+</resources>

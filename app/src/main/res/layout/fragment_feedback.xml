@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".Observation"
+    android:background="#FFFFFF"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <!-- TODO: Obsevation to be taken by user -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="5dp"
+            android:weightSum="2"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/ddlYear"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/selectyear"
+                android:background="@drawable/spinner_background" />
+
+
+            <Spinner
+                android:id="@+id/ddlSesion"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/selectseason"
+                android:background="@drawable/spinner_background" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_gravity="center">
+
+            <Spinner
+                android:id="@+id/ddlCrop"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/spinner_background" />
+
+            <Spinner
+                android:id="@+id/ddlTrailType"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/spinner_background" />
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/layout_border"
+            android:layout_margin="5dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"/>
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="88dp"
+                android:layout_height="43dp"
+                android:visibility="gone">
+
+            </ListView>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Save"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="199dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/buttonbordet"
+                android:drawableLeft="@drawable/save"
+                android:layout_below="@+id/listview"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

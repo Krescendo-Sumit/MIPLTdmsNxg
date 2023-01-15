@@ -1,0 +1,161 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'googlemapsanimations'
+
+    publishedGroupId = 'com.github.aarsy.googlemapsanimations'
+    libraryName = 'googlemapsanimations'
+    artifact = 'googlemapsanimations'
+
+    libraryDescription = '"GoogleMapsAnimations" is an awesome android library for developers who need to show radar effect or multiple types of circular ripple effects on google map'
+
+    siteUrl = 'https://github.com/aarsy/GoogleMapsAnimations'
+    gitUrl = 'https://github.com/aarsy/GoogleMapsAnimations.git'
+
+    libraryVersion = '1.0.5'
+
+    developerId = 'aarsy'
+    developerName = 'Abhay Raj Singh Yadav'
+    developerEmail = 'abhayyadavleo@gmail.com   '
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+       // minSdkVersion setup.minSdkVersion
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0.5"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true  /*<***GIS VAPT 2021 UPDATE***>*/
+            shrinkResources false  /*<***GIS VAPT 2021 UPDATE***>*/
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "com.google.android.gms:play-services-maps:17.0.0"
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+    implementation "com.google.android.gms:play-services-base:17.0.0"
+
+
+    implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.7'
+    implementation 'com.google.firebase:firebase-analytics:17.4.2'
+}
+group = publishedGroupId                               // Maven Group ID for the artifact
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                groupId publishedGroupId
+                artifactId artifact
+
+                // Add your description here
+                name libraryName
+                description libraryDescription
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name licenseName
+                        url licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+
+version = libraryVersion
+
+if (project.hasProperty("android")) { // Android libraries
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    task javadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+    afterEvaluate {
+        javadoc.classpath += files(android.libraryVariants.collect { variant ->
+            variant.javaCompile.classpath.files
+        })
+    }
+} else { // Java libraries
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    //archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        publish = true
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password")
+                //Optional. The passphrase for GPG signing'
+            }
+        }
+    }
+}

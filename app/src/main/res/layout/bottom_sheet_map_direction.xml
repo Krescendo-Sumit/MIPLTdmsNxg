@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:paddingTop="5dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/mapelements"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/destination"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/map_marker_green"
+
+            />
+
+
+        <ImageView
+            android:id="@+id/path"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/destination"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/road" />
+
+
+        <ImageView
+            android:id="@+id/source"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/path"
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/map_marker_red"
+
+            />
+
+        <TextView
+
+            android:id="@+id/distancename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Distance :" />
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/distancename"
+            android:text="25" />
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
+
+
+
+

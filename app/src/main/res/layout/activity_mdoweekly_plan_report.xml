@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+   <Button
+   android:id="@+id/btnReport"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+       android:background="@drawable/buttonbordet"
+            android:text="Show Report"
+       android:visibility="gone"
+            android:textColor="#000" />
+    </LinearLayout>
+
+    <WebView
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/wb1"
+        >
+    </WebView>
+
+    <ScrollView
+        android:visibility="invisible"
+        android:id="@+id/layout1"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dip"
+        android:scrollbarStyle="outsideInset"
+        android:fillViewport="true">
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

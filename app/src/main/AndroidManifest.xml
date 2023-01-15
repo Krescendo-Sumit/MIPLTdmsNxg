@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tdms.mahyco.nxg">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <!--
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE  " />
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:name="com.tdms.mahyco.nxg.MainApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Trial Data Management"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="false"
+        tools:replace="android:allowBackup">
+        <!-- <***GIS VAPT 2021 UPDATE***> "usesCleartextTraffic=false"-->
+
+        <activity android:name="com.tdms.mahyco.nxg.SowingActivityNew" android:exported="false"></activity>
+        <activity android:name="com.tdms.mahyco.nxg.DownloadObservationActivity" android:exported="false" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.FeedbackSummaryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.MDOSurveyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.survey"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tdms.mahyco.nxg.login"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.home"
+            android:exported="false"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.register_user"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.areatag"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.newAreaTag"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.alreadyTag"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.AndroidDatabaseManager"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.Testimonial"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.SelectObsOpnTrialActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.FeedbackDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.TravelManagement.MyTravel"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.forget_password"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.ReportActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.hi"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.detail_report"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.pld_not_sown"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.ReportDashboard.ReportDashboard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.ReportDashboard.MDOweeklyPlanReport"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.MapDirection"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.tdms.mahyco.nxg.MapsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAMfshbtXMD9H0HVF3r1KlLSXmgMWSgtZk" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.tdms.mahyco.nxg.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>

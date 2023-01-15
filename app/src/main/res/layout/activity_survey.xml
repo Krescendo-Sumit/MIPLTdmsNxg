@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <ScrollView
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:fadeScrollbars="false">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardUseCompatPadding="true"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+
+                        <TextView
+                            android:id="@+id/lblQ1"
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_weight="2.5"
+                            android:text="1.Would you recommend Mahyco products to other farmers?"
+                            android:textColor="@color/lightBlack"
+                            android:textStyle="bold" />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_weight="0.5"
+                            android:elevation="1dp"
+                            android:innerRadius="0dp"
+                            android:thicknessRatio="1.9"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:paddingLeft="5dp"
+                                    android:text="NO"
+                                    android:textColor="@color/lightBlack" />
+
+                                <Switch
+                                    android:id="@+id/switchQ1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:textColor="@color/lightBlack"
+                                    android:textOff="NO"
+                                    android:textOn="YES" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_weight="0.5"
+                                    android:text="YES"
+
+                                    android:textColor="@color/lightBlack" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <View android:id="@+id/primerdivisor"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="2.On a scale of 0 to 5, how likely are you to recommend our company to a friend or colleague?"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id ="@+id/lblQ2"/>
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radResponsive11"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radResponsive21"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radResponsive31"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radResponsive41"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radResponsive51"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+                    <View android:id="@+id/primerdivisor1"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:weightSum="3">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_weight="2.5"
+                            android:textStyle="bold"
+
+                            android:text="3.Do you receive Follow-ups to see if you have received what you need."
+                            android:textColor="@color/lightBlack"
+                            android:id ="@+id/lblQ3"/>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0.5"
+                            android:elevation="1dp"
+                            android:innerRadius="0dp"
+                            android:thicknessRatio="1.9"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="5dp"
+                                    android:layout_weight="0.5"
+                                    android:text="NO"
+                                    android:textColor="@color/lightBlack" />
+
+                                <Switch
+                                    android:id="@+id/switchQ3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/lightBlack"
+                                    android:textOff="NO"
+                                    android:textOn="YES" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_weight="0.5"
+                                    android:text="YES"
+
+                                    android:textColor="@color/lightBlack" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <View android:id="@+id/primerdivisor3"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:weightSum="3">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_weight="2.5"
+                            android:textStyle="bold"
+
+                            android:text="4.Do you want any other service ? Please mention."
+                            android:textColor="@color/lightBlack"
+                            android:id="@+id/lblQ4"/>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="0.5"
+                            android:elevation="1dp"
+                            android:innerRadius="0dp"
+                            android:thicknessRatio="1.9"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="5dp"
+                                    android:layout_weight="0.5"
+                                    android:text="NO"
+                                    android:textColor="@color/lightBlack" />
+
+                                <Switch
+                                    android:id="@+id/switchQ4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/lightBlack"
+                                    android:textOff="NO"
+                                    android:textOn="YES" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_weight="0.5"
+                                    android:text="YES"
+
+                                    android:textColor="@color/lightBlack" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+
+                        <EditText
+                            android:id="@+id/etRecommendDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:ems="10"
+                            android:textAllCaps="true"
+                            android:hint="Recommend Description"
+                            android:maxLength="100"
+
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <View android:id="@+id/primerdivisor4"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="5.How responsive have we been to your questions and concerns about our products?"
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id ="@+id/lblQ5"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radResponsive1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radResponsive2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radResponsive3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radResponsive4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radResponsive5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+                    <View android:id="@+id/primerdivisor5"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="6.The CI/RM always makes sure that promises and commitments are met"
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ6"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+
+                    <View android:id="@+id/primerdivisor6"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="7.The CI/RM provides the best advice on agronomical practices to get maximum yield"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ7"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radMeetings1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radMeetings2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radMeetings3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radMeetings4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radMeetings5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+                    <View android:id="@+id/primerdivisor7"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_weight="2.5"
+                            android:textStyle="bold"
+
+                            android:text="8.Was the contract document easy to read and understand ?"
+                            android:textColor="@color/lightBlack"
+                            android:id="@+id/lblQ8"/>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_weight="0.5"
+                            android:elevation="1dp"
+                            android:innerRadius="0dp"
+                            android:thicknessRatio="1.9"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:paddingLeft="5dp"
+                                    android:text="NO"
+                                    android:textColor="@color/lightBlack" />
+
+                                <Switch
+                                    android:id="@+id/switchQ8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:textColor="@color/lightBlack"
+                                    android:textOff="NO"
+                                    android:textOn="YES" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_weight="0.5"
+                                    android:text="YES"
+
+                                    android:textColor="@color/lightBlack" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <View android:id="@+id/primerdivisor8"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_weight="2.5"
+                            android:textStyle="bold"
+                            android:text="9.Are you satisfied with the last season Mahyco product yield?"
+                            android:textColor="@color/lightBlack"
+                            android:id ="@+id/lblQ9"/>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_weight="0.5"
+                            android:elevation="1dp"
+                            android:innerRadius="0dp"
+                            android:thicknessRatio="1.9"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:paddingLeft="5dp"
+                                    android:text="NO"
+                                    android:textColor="@color/lightBlack" />
+
+                                <Switch
+                                    android:id="@+id/switchQ9"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:textColor="@color/lightBlack"
+                                    android:textOff="NO"
+                                    android:textOn="YES" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_weight="0.5"
+                                    android:text="YES"
+
+                                    android:textColor="@color/lightBlack" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <View android:id="@+id/primerdivisor9"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="10.What are the top 3 benefits you get from us?"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ10"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+
+                        <EditText
+                            android:id="@+id/etSuggestions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="Top 3 Benifits *"
+                            android:inputType="textCapWords"
+                            android:maxLength="150"
+                            android:textAllCaps="true"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <View android:id="@+id/primerdivisor10"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="11.Rate the company staff on following parameters."
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ11"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:text="a) Gave timely information of Farming practices"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ11a"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ11a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments11"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments21"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments31"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments41"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments51"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:text="b) Visited the field during different phases of crop cycle"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ11b"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ11b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments12"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments22"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments32"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments42"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments52"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:text="c) Answered questions on time"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ11c"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ11c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments13"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments23"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments33"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments43"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments53"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:text="d) Were reachable and responded quickly"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ11d"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ11d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments14"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments24"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments34"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments44"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments54"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:text="e) Helped in documentation"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ11e"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ11e"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments15"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments25"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments35"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments45"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments55"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+                    <View android:id="@+id/primerdivisor11"
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="@color/lineColor" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="12dp"
+                        android:text="12.Compared to our competitors, how is our product quality?"
+
+                        android:textColor="@color/lightBlack"
+                        android:textStyle="bold"
+                        android:id="@+id/lblQ12"/>
+
+                    <RadioGroup
+                        android:id="@+id/rbtQ12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/line"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments16"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1"
+
+                            />
+
+
+                        <RadioButton
+                            android:id="@+id/radCommitments26"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments36"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="3"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments46"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="4"
+
+                            />
+
+                        <RadioButton
+                            android:id="@+id/radCommitments56"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+
+                            />
+                    </RadioGroup>
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/buttonbordet"
+                        android:text="Submit"
+                        android:textColor="#000"
+
+                        />
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/relPRogress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMdo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:layout_centerHorizontal="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ProgressBar
+                    android:id="@+id/myProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:indeterminate="true"
+
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="visible"
+
+                    />
+
+                <TextView
+                    android:id="@+id/myTextProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15sp"
+                    android:layout_toRightOf="@+id/myProgress"
+                    android:background="@android:color/white"
+                    android:text="Uploading Data"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

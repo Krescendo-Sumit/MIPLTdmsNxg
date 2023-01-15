@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path path="/data/data/com.tdms.mahyco.nxg/" name="files_root" />
+    <external-path name="my_images" path="/data/data/com.tdms.mahyco.nxg/Pictures" />
+    <external-path path="." name="external_storage_root" />
+</paths>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newAreaTag"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/layout_border"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/lblTrial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trial Code "
+            android:layout_marginLeft="30dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/lbl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=": "
+            android:layout_marginLeft="110dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/txtTrialCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="120dp"
+            android:textColorLink="@android:color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="15sp"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <WebView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/wb1"
+        >
+    </WebView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationText"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:layout_below="@+id/wb1"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationArea"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:layout_below="@+id/locationText"
+        android:padding="10dp"/>
+
+
+    <Button
+        android:id="@+id/getLocationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/locationArea"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/buttonbordet"
+        android:drawableLeft="@drawable/location"
+        android:text="Tag Location" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="Clear Tag"
+        android:layout_below="@+id/locationArea"
+
+        android:id="@+id/deleteLocationBtn"
+        android:background="@drawable/buttonbordet"
+        android:drawableLeft="@drawable/delete"
+        android:layout_marginLeft="200dp"/>
+
+    <TextView
+        android:id="@+id/lblareatext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Area In Acr : "
+        android:layout_marginLeft="30dp"
+        android:textColorLink="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/getLocationBtn"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/lblarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginLeft="120dp"
+        android:textColorLink="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/getLocationBtn"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="Save Tag Data"
+        android:id="@+id/BtnAreaSave"
+        android:background="@drawable/buttonbordet"
+        android:layout_marginLeft="30dp"
+        android:drawableLeft="@drawable/save"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/lblarea"/>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="30dp"
+    android:layout_below="@id/BtnAreaSave">
+    <TextView
+        android:id="@+id/lbltable"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text=""
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textColorLink="@android:color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/lblareatext"
+        android:layout_marginTop="15dp"/>
+</ScrollView>
+
+
+</RelativeLayout>

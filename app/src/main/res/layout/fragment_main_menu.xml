@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenu"
+    android:background="#FFFFFF">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <Button
+            android:id="@+id/btnDownload"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Download Data"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="80dp"
+            android:drawableLeft="@drawable/downlaod"
+            android:background="@drawable/buttonbordet"
+            android:drawableTint="@color/lightblack"
+            android:elevation="15dp"/>
+
+        <Button
+            android:id="@+id/btnDownloadObservation"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Select Observation"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/downlaod"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack" />
+
+        <Button
+            android:id="@+id/btnAreaTag"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Sowing"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/sowing"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"/>
+
+        <Button
+            android:id="@+id/btnObservation"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Observation"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/observation"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"/>
+
+        <Button
+            android:id="@+id/btnValidation"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Validation"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/validation"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btnUploadData"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Upload Data"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/upload"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"/>
+        <Button
+            android:id="@+id/btnShowReport"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Report"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/report"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"/>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Logout"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/logout"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"/>
+
+        <Button
+            android:id="@+id/btnShowDB"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Show DB"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:drawableLeft="@drawable/show"
+            android:background="@drawable/buttonbordet"
+            android:layout_marginTop="20dp"
+            android:drawableTint="@color/lightblack"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+</RelativeLayout>
