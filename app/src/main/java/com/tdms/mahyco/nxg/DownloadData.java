@@ -33,10 +33,20 @@ import com.tdms.mahyco.nxg.utils.HttpUtils;
 import com.tdms.mahyco.nxg.utils.MultiSelectionSpinner;
 import com.tdms.mahyco.nxg.utils.Prefs;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -57,7 +67,7 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
     Prefs mPref;
     String type = null;
     databaseHelper databaseHelper1;
-    public Button btnDownload, btnDownloadFeedbackData;
+    public Button btnDownload, btnDownloadFeedbackData,btnDownloadDataLocation;
     public TextView txtStaff, txtTFA;
     ProgressDialog mprogresss;
     public Messageclass msclass;
@@ -70,8 +80,12 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
     private Toolbar toolbar;
     String userCode;
     RelativeLayout rel_data;
+    Context context;
     //    public ProgressBar da;
     String year;
+    String SERVER="https://sumit.free.beeceptor.com/getLocationDetails";
+    String BASE="sumit.free.beeceptor.com";
+    JSONObject globalJson;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,13 +106,15 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
 //97191040
         mprogresss = new ProgressDialog(getActivity());
         mprogresss.setCancelable(false);
-
+        globalJson=new JSONObject();
+        context=getContext();
         ddlYear = (MultiSelectionSpinner) rootView.findViewById(R.id.ddlYear);
         rel_data = (RelativeLayout) rootView.findViewById(R.id.rel_data);
         ddlSesion = (MultiSelectionSpinner) rootView.findViewById(R.id.ddlSesion);
         Spinner TrailStage = (Spinner) rootView.findViewById(R.id.ddlStage);
         Spinner TrailCode = (Spinner) rootView.findViewById(R.id.ddlTrailCode);
         btnDownload = (Button) rootView.findViewById(R.id.btnDownloadData);
+        btnDownloadDataLocation = (Button) rootView.findViewById(R.id.btnDownloadDataLocation);
         btnDownloadFeedbackData = (Button) rootView.findViewById(R.id.btnDownloadFeedbackData);
         txtStaff = (TextView) rootView.findViewById(R.id.txtStaff);
         txtTFA = (TextView) rootView.findViewById(R.id.txtTFA);
@@ -132,6 +148,7 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
         } else {
             data.moveToFirst();
             if (data != null) {
+
                 do {
                     //userCode = data.getString((data.getColumnIndex("user_code")));
                     String userCodeEncrypt = data.getString((data.getColumnIndex("user_code")));
@@ -221,6 +238,38 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
 
             }
         }).start();*/
+
+        btnDownloadDataLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validation()) {
+
+                  try {
+                        Log.d("XXX XDownload", "Call Download " + "Time: " + BaseUtils.convertMillisToString());
+                        if (Config.NetworkConnection()) {
+globalJson=new JSONObject();
+                            /*Added on 1st Sept, set flag 1 for selected year and season for future reference*/
+                            String yearData = ddlYear.getSelectedItemsAsString().replace(" ", "");
+                            String seasonData = ddlSesion.getSelectedItemsAsString().replace(" ", "");
+                            globalJson.put("UserId",txtStaff.getText().toString());
+                            globalJson.put("Year",yearData);
+                            globalJson.put("Session",seasonData);
+                            new GetLocationData().execute();
+
+
+                        } else {
+                            Toast.makeText(getActivity(), "Internet network not available.", Toast.LENGTH_SHORT).show();
+                        }
+
+                    } catch (Exception e) {
+                        Log.d("Msg", e.getMessage());
+                    }
+
+
+                }// else Toast.makeText(getActivity(), "False", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         btnDownloadFeedbackData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -956,6 +1005,202 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
                 }
             } catch (Exception e) {
                 Log.d("Msg", e.getMessage());
+            }
+        }
+    }
+
+
+
+    private class GetLocationData extends AsyncTask<String, Void, Void> {
+
+        private final HttpClient Client = new DefaultHttpClient();
+        private String Content;
+        private String Error = null;
+        private ProgressDialog Dialog = new ProgressDialog(getContext());
+        private String type = "";
+
+        protected void onPreExecute() {
+            // NOTE: You can call UI Element here.
+
+            //UI Element
+            //   uiUpdate.setText("Output : ");
+            Dialog.setMessage("Please Wait..");
+            Dialog.show();
+            //pb.setVisibility(View.VISIBLE);
+        }
+
+        // Call after onPreExecute method
+        protected Void doInBackground(String... urls) {
+            StringBuilder sb = new StringBuilder();
+
+            HttpURLConnection urlConnection = null;
+            try {
+
+
+                Log.i("pass", "2");
+                URL url = new URL(SERVER);
+
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setDoOutput(true);
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setUseCaches(false);
+                urlConnection.setConnectTimeout(10000);
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setRequestProperty("Content-Type", "application/json");
+                urlConnection.setRequestProperty("Authorization", "Bearer " +  mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
+
+                Log.i("pass", "3");
+                urlConnection.setRequestProperty("Host", BASE);
+                urlConnection.connect();
+
+                JSONObject jsonParam = globalJson;
+                // jsonParam.put("UserCode", tbmcode);
+
+                DataOutputStream printout;
+                Log.i("pass", "5");
+                OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());
+                out.write(jsonParam.toString());
+                Log.i("content:", jsonParam.toString());
+                //Toast.makeText(getApplicationContext(),jsonParam.toString(),Toast.LENGTH_LONG).show();
+                out.close();
+                int HttpResult = urlConnection.getResponseCode();
+                if (HttpResult == HttpURLConnection.HTTP_OK) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(
+                            urlConnection.getInputStream(), "utf-8"));
+                    String line = null;
+                    while ((line = br.readLine()) != null) {
+                        sb.append(line + "\n");
+                    }
+                    br.close();
+
+                    Log.i("content:", sb.toString());
+                    //    Toast.makeText(getApplicationContext(), "" + sb.toString(), Toast.LENGTH_SHORT).show();
+                    Content = sb.toString();
+                } else {
+                    Log.i("ResponseMsg:", urlConnection.getResponseMessage());
+                }
+            } catch (MalformedURLException e) {
+
+                e.printStackTrace();
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } finally {
+                if (urlConnection != null)
+                    urlConnection.disconnect();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(Void unused) {
+            // NOTE: You can call UI Element here.
+
+            // Close progress dialog
+            Dialog.dismiss();
+
+            if (Error != null) {
+
+                //  uiUpdate.setText("Output : "+Error);
+
+            } else {
+                //pb.setVisibility(View.GONE);
+                //   uiUpdate.setText("Output : "+Content);
+                // loadFromServer(Content.toString().trim());
+
+                try {
+                    Log.i("Details", "" + Content);
+                    databaseHelper1.deleledata("tbl_rainfall_location","");
+                    AddDataToLocalStorage(Content);
+
+
+                } catch (Exception e) {
+                    Log.i("Details", "" + e.getMessage());
+
+
+                }
+            }
+        }
+
+    }
+
+    private void AddDataToLocalStorage(String content) {
+        try{
+
+            Toast.makeText(context, ""+content, Toast.LENGTH_SHORT).show();
+            new AddLocationDataLocally().execute(content);
+
+        }catch (Exception e)
+        {
+            Toast.makeText(context, "Erri"+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    class AddLocationDataLocally extends AsyncTask{
+        ProgressDialog progressDialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog=new ProgressDialog(context);
+            progressDialog.setMessage("Please Wait...");
+            progressDialog.show();
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+
+            try{
+
+                JSONArray jsonArray=new JSONArray(objects[0].toString().trim());
+                for(int i=0;i<jsonArray.length();i++)
+                {
+                    JSONObject jsonObject=jsonArray.getJSONObject(i);
+                    if(databaseHelper1.InsertRainfallLocation(
+                            jsonObject.getInt("LocationId"),
+                            jsonObject.getString("LocationTitle"),
+                            jsonObject.getString("Status"),
+                            jsonObject.getString("CreatedBy"),
+                            jsonObject.getString("CreatedDate"),
+                            jsonObject.getInt("ContryId"),
+                            jsonObject.getString("RegionId"),
+                            jsonObject.getString("RegionName"),
+                            jsonObject.getInt("ParentId")
+                            ))
+                    {
+                        Log.i("Location Added","Success");
+                    }
+                }
+                 return ""+jsonArray.length()+" Records Added.";
+            }catch (Exception e)
+            {
+               return e.getMessage()+objects[0].toString().trim();
+            }
+
+
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+progressDialog.dismiss();
+            try{
+
+                new AlertDialog.Builder(context)
+                        .setMessage(""+o.toString())
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show()
+                ;
+
+
+            }catch (Exception e)
+            {
+
             }
         }
     }

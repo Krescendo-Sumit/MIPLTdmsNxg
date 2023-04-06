@@ -19,6 +19,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.tdms.mahyco.nxg.model.FeedbackReportModel;
+import com.tdms.mahyco.nxg.model.RainfallLocationModel;
 import com.tdms.mahyco.nxg.utils.AppConstant;
 import com.tdms.mahyco.nxg.utils.EncryptDecryptManager;
 
@@ -33,7 +34,7 @@ import java.util.List;
 
 public class databaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
-    private static final int SQLITE_DB_VERSION = 38; //Updated on 24 August 2021
+    private static final int SQLITE_DB_VERSION = 39; //Updated on 24 August 2021
     public static final String DATABASE_FILE_PATH = "/sdcard";
     private static final String DATABASE_NAME = "BREEDERAPP.db";
     private static final String Table1 = "TrailCodeData";
@@ -110,6 +111,42 @@ public class databaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_YEAR);
         String CREATE_TABLE_SEASON = "CREATE TABLE " + SEASON_TABLE + "(" + COLUMN_ID + " INTEGER PRIMARY KEY,name TEXT,flag TEXT)";
         db.execSQL(CREATE_TABLE_SEASON);
+
+        String CREATE_RAINFALL_LOCATION = "Create table tbl_rainfall_location(" +
+                "LocationId INTEGER  PRIMARY KEY AUTOINCREMENT," +
+                "LocationTitle TEXT," +
+                "Status TEXT," +
+                "CreatedBy TEXT," +
+                "CreatedDate TEXT," +
+                "ContryId INTEGER," +
+                "RegionId TEXT," +
+                "RegionName TEXT," +
+                "ParentId INTEGER" +
+                ")" +
+                " ";
+        db.execSQL(CREATE_RAINFALL_LOCATION);
+
+        String CREATE_RAINFALL_MASTER = "CREATE TABLE tbl_rainfall_master(" +
+                "TRID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "CONNTRYID INTEGER," +
+                "LOCATIONID INTEGER," +
+                "USERCODE TEXT," +
+                "APPCODE TEXT," +
+                "APPVERSION TEXT," +
+                "YEAR TEXT," +
+                "MONTH TEXT," +
+                "DAY TEXT," +
+                "ACTUALDATE TEXT," +
+                "READING TEXT," +
+                "CREATEDDATE TEXT," +
+                "EXTRA_PARAM1 TEXT," +
+                "EXTRA_PARAM2 TEXT," +
+                "ISACTIVE  TEXT" +
+                ")";
+        db.execSQL(CREATE_RAINFALL_MASTER);
+
+
+
         /*Change END*/
     }
 
@@ -140,6 +177,8 @@ public class databaseHelper extends SQLiteOpenHelper {
         /*26 Aug 2021 for SRS task*/
         db.execSQL("DROP TABLE IF EXISTS " + YEAR_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + SEASON_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS tbl_rainfall_master");
+        db.execSQL("DROP TABLE IF EXISTS tbl_rainfall_location");
 
         onCreate(db);
     }
@@ -190,6 +229,157 @@ public class databaseHelper extends SQLiteOpenHelper {
         db.close();
         return true;
     }
+
+    public boolean InsertRainfallLocation(
+
+                                                  int LocationId,
+                                                  String LocationTitle,
+                                                  String Status,
+                                                  String CreatedBy,
+                                                  String CreatedDate,
+                                                  int ContryId,
+                                                  String RegionId,
+                                                  String RegionName,
+                                                  int ParentId
+    ) {
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+
+            contentValues.put("LocationId", LocationId);//: 3,
+            contentValues.put("LocationTitle", LocationTitle);//: "Bantare",
+            contentValues.put("Status", Status);//:true,
+            contentValues.put("CreatedBy", CreatedBy);//: "97260897",
+            contentValues.put("CreatedDate", CreatedDate);//: "2023-01-10",
+            contentValues.put("ContryId", ContryId);//: 1,
+            contentValues.put("RegionId", RegionId);//: "SZ",
+            contentValues.put("RegionName", RegionName);//: "South Zone",
+            contentValues.put("ParentId", ParentId);//:10
+
+            String q="Insert into tbl_rainfall_location(LocationId,LocationTitle,Status,CreatedBy,CreatedDate,ContryId,RegionId,RegionName,ParentId) Values " +
+                    "('"+LocationId+"','"+LocationTitle+"','"+Status+"','"+CreatedBy+"','"+CreatedDate+"','"+ContryId+"','"+RegionId+"','"+RegionName+"','"+ParentId+"')";
+             db.execSQL(q);
+             Log.i("QQ",q);
+        //    db.insert("tbl_rainfall_location", null, contentValues);
+            db.close();
+        }catch (Exception e)
+        {
+            Log.i("Error InsertRainloc",e.getMessage());
+        }
+        return true;
+    }
+
+    public ArrayList<RainfallLocationModel> getLocationData() {
+        ArrayList<RainfallLocationModel> list;
+        try {
+
+          list = new ArrayList<RainfallLocationModel>();
+
+          String selectQuery = "Select * from tbl_rainfall_location";
+          SQLiteDatabase db = getReadableDatabase();
+          Cursor cursor = db.rawQuery(selectQuery, null);
+          if (cursor != null && cursor.moveToFirst()) {
+              do {
+                  //JSONObject jobj = new JSONObject();
+                  Log.i("ParentId",""+cursor.getInt(0));
+                  RainfallLocationModel reportModel = new RainfallLocationModel();
+                  try {
+
+                      reportModel.setLocationId(cursor.getInt(0));//": 3,
+                      reportModel.setLocationTitle(cursor.getString(1));//": "Bantare",
+                      reportModel.setStatus(cursor.getString(2));//":true,
+                      reportModel.setCreatedBy(cursor.getString(3));//": "97260897",
+                      reportModel.setCreatedDate(cursor.getString(4));//": "2023-01-10",
+                      reportModel.setContryId(cursor.getInt(5));//": 1,
+                      reportModel.setRegionId(cursor.getString(6));//": "SZ",
+                      reportModel.setRegionName(cursor.getString(7));//": "South Zone",
+                      reportModel.setParentId(cursor.getInt(8));//":10
+
+                  } catch (Exception e) {
+                      Log.d("Msg", e.getMessage());
+                  }
+                  list.add(reportModel);
+              } while (cursor.moveToNext());
+          }
+      }catch (Exception e)
+      {
+          Log.e("Error is",e.getMessage());
+          return null;
+      }
+        return list;
+    }
+
+
+    public ArrayList<RainfallLocationModel> getLoc() {
+        SQLiteDatabase mydb = null;
+        String k = "";
+        RainfallLocationModel reportModel = null;
+        ArrayList<RainfallLocationModel> arrayLists = new ArrayList<RainfallLocationModel>();
+        try {
+            mydb = this.getReadableDatabase();
+            String q = "SELECT  * FROM tbl_rainfall_location";
+            Log.i("Query ", q);
+            Cursor cursor = mydb.rawQuery(q, null);
+
+            while (cursor.moveToNext()) {
+                reportModel=new RainfallLocationModel();
+                Log.i("Row", cursor.getString(3));
+                reportModel.setLocationId(cursor.getInt(0));//": 3,
+                reportModel.setLocationTitle(cursor.getString(1));//": "Bantare",
+                reportModel.setStatus(cursor.getString(2));//":true,
+                reportModel.setCreatedBy(cursor.getString(3));//": "97260897",
+                reportModel.setCreatedDate(cursor.getString(4));//": "2023-01-10",
+                reportModel.setContryId(cursor.getInt(5));//": 1,
+                reportModel.setRegionId(cursor.getString(6));//": "SZ",
+                reportModel.setRegionName(cursor.getString(7));//": "South Zone",
+                reportModel.setParentId(cursor.getInt(8));//":10
+                arrayLists.add(reportModel);
+            }
+            return arrayLists;
+        } catch (Exception e) {
+            Log.i("Error getdata", e.getMessage());
+            return null;
+        } finally {
+            mydb.close();
+        }
+    }
+
+
+    public boolean InsertRainfallMaster(String CONNTRYID,
+                                        String LOCATIONID,
+                                        String USERCODE,
+                                        String APPCODE,
+                                        String APPVERSION,
+                                        String YEAR,
+                                        String MONTH,
+                                        String DAY,
+                                        String ACTUALDATE,
+                                        String READING,
+                                        String CREATEDDATE) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        //contentValues.put("TRID", 0);
+        contentValues.put("CONNTRYID", CONNTRYID);
+        contentValues.put("LOCATIONID", LOCATIONID);
+        contentValues.put("USERCODE", USERCODE);
+        contentValues.put("APPCODE", APPCODE);
+        contentValues.put("APPVERSION", APPVERSION);
+        contentValues.put("YEAR", YEAR);
+        contentValues.put("MONTH", MONTH);
+        contentValues.put("DAY", DAY);
+        contentValues.put("ACTUALDATE", ACTUALDATE);
+        contentValues.put("READING", READING);
+        contentValues.put("CREATEDDATE", CREATEDDATE);
+        contentValues.put("EXTRA_PARAM1", "");
+        contentValues.put("EXTRA_PARAM2", "");
+        contentValues.put("ISACTIVE", "");
+
+        db.insert("tbl_rainfall_master", null, contentValues);
+        db.close();
+        return true;
+    }
+
 
     public boolean InsertUserRegistrationNew(String DisplayName, String User_Role, String User_pwd, String UserCode) {
         SQLiteDatabase db = getWritableDatabase();
@@ -735,13 +925,12 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /*Added on 31st March 2022*/
-    public boolean isNotSownExist(String trialCode){
+    public boolean isNotSownExist(String trialCode) {
         SQLiteDatabase db = getWritableDatabase();
         Cursor mCursor = db.rawQuery("SELECT * FROM PLDNotSown where trialCode='" + trialCode.trim() + "'", null);
-        if (mCursor.getCount()>0){
+        if (mCursor.getCount() > 0) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

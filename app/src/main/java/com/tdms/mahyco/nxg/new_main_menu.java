@@ -77,8 +77,8 @@ public class new_main_menu extends Fragment {
 
 
         if (userRole.equals("1")) {   //Admin
-            menu_names = new String[11]; //12
-            images = new int[11]; //12
+            menu_names = new String[12]; //12
+            images = new int[12]; //12
             menu_names[0] = "Download";
             //menu_names[1] = "Select Observation";/*menu_names[1] = "Select Observation"; Removed on 22 April 2021*/
             menu_names[1] = "Sowing & Transplanting";
@@ -91,6 +91,7 @@ public class new_main_menu extends Fragment {
             menu_names[8]="BE-Survey (VOTG)";
             menu_names[9] = "TFA Survey";
             menu_names[10] = "Logout";
+            menu_names[11] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             /*images[1] = R.drawable.ic_new_selectobservation;*/
@@ -104,12 +105,13 @@ public class new_main_menu extends Fragment {
             images[8]=R.drawable.ic_survey;
             images[9]=R.drawable.ic_survey;
             images[10] = R.drawable.ic_new_logout;
+            images[11] = R.drawable.ic_new_logout;
 
 
         } else if (userRole.equals("2")) {
 
-            menu_names = new String[11]; //12
-            images = new int[11];//12
+            menu_names = new String[12]; //12
+            images = new int[12];//12
             menu_names[0] = "Download";
             /*menu_names[1] = "Select Observation";*/ /*menu_names[1] = "Select Observation"; Removed on 22 April 2021*/
             menu_names[1] = "Sowing & Transplanting";
@@ -122,6 +124,7 @@ public class new_main_menu extends Fragment {
             menu_names[8]="BE-Survey (VOTG)";
             menu_names[9]="TFA Survey";
             menu_names[10] = "Logout";
+            menu_names[11] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             /*images[1] = R.drawable.ic_new_selectobservation;*/
@@ -135,12 +138,13 @@ public class new_main_menu extends Fragment {
             images[8]=R.drawable.ic_survey;
             images[9]=R.drawable.ic_survey;
             images[10] = R.drawable.ic_new_logout;
+            images[11] = R.drawable.ic_new_logout;
 
         } else if (userRole.equals("3")) {
 
 
-            menu_names = new String[11]; //12
-            images = new int[11]; //12
+            menu_names = new String[12]; //12
+            images = new int[12]; //12
             menu_names[0] = "Download";
             /*menu_names[1] = "Select Observation";*/ /*menu_names[1] = "Select Observation"; Removed on 22 April 2021*/
             menu_names[1] = "Sowing & Transplanting";
@@ -153,6 +157,7 @@ public class new_main_menu extends Fragment {
             menu_names[8]="BE-Survey (VOTG)";
             menu_names[9]="TFA Survey";
             menu_names[10] = "Logout";
+            menu_names[11] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             /*images[1] = R.drawable.ic_new_selectobservation;*/
@@ -166,13 +171,14 @@ public class new_main_menu extends Fragment {
             images[8]=R.drawable.ic_survey;
             images[9]=R.drawable.ic_survey;
             images[10] = R.drawable.ic_new_logout;
+            images[11] = R.drawable.ic_new_logout;
 
 
         } else if (userRole.equals("4")) {
 
 
-            menu_names = new String[8];
-            images = new int[8];
+            menu_names = new String[9];
+            images = new int[9];
             menu_names[0] = "Download";
             menu_names[1] = "Upload";
             menu_names[2] = "Report";
@@ -181,6 +187,7 @@ public class new_main_menu extends Fragment {
             menu_names[5]="BE-Survey (VOTG)";
             menu_names[6]="TFA Survey";
             menu_names[7] = "Logout";
+            menu_names[8] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             images[1] = R.drawable.ic_new_upload;
@@ -190,13 +197,14 @@ public class new_main_menu extends Fragment {
             images[5]=R.drawable.ic_survey;
             images[6]=R.drawable.ic_survey;
             images[7] = R.drawable.ic_new_logout;
+            images[8] = R.drawable.ic_new_logout;
 
 
         } else if (userRole.equals("5")) {
 
 
-            menu_names = new String[7];
-            images = new int[7];
+            menu_names = new String[9];
+            images = new int[9];
             menu_names[0] = "Download";
             menu_names[1] = "Upload";
             menu_names[2] = "Report";
@@ -205,6 +213,7 @@ public class new_main_menu extends Fragment {
             menu_names[5]="BE-Survey (VOTG)";
             menu_names[6]="TFA Survey";
             menu_names[7] = "Logout";
+            menu_names[8] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             images[1] = R.drawable.ic_new_upload;
@@ -214,12 +223,13 @@ public class new_main_menu extends Fragment {
             images[5]=R.drawable.ic_survey;
             images[6]=R.drawable.ic_survey;
             images[7] = R.drawable.ic_new_logout;
+            images[8] = R.drawable.ic_new_logout;
 
 
         } else if (userRole.equals("6")) {
 
-            menu_names = new String[9]; //10
-            images = new int[9]; //10
+            menu_names = new String[10]; //10
+            images = new int[10]; //10
             menu_names[0] = "Download";
             /*menu_names[1] = "Select Observation";*/ /*menu_names[1] = "Select Observation"; Removed on 22 April 2021*/
             menu_names[1] = "Sowing & Transplanting";
@@ -230,6 +240,7 @@ public class new_main_menu extends Fragment {
             menu_names[6]="BE-Survey (VOTG)";
             menu_names[7]="TFA Survey";
             menu_names[8] = "Logout";
+            menu_names[9] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             /*images[1] = R.drawable.ic_new_selectobservation;*/
@@ -239,20 +250,22 @@ public class new_main_menu extends Fragment {
             images[4] = R.drawable.mytravel_ic_new;
             images[5] = R.drawable.ic_new_report;
             images[6] = R.drawable.ic_survey;
-            images[7] = R.drawable.ic_survey;
+            images[7] = R.drawable.ic_new_logout;
             images[8] = R.drawable.ic_new_logout;
+            images[9] = R.drawable.ic_new_logout;
 
         } else if (userRole.equals("7")) {
-            menu_names = new String[8];
-            images = new int[8];
+            menu_names = new String[9];
+            images = new int[9];
             menu_names[0] = "Download";
             menu_names[1] = "Upload";
             menu_names[2] = "Report";
             menu_names[3] = "Map";
             menu_names[4] = "Feedback";
             menu_names[5]="BE-Survey (VOTG)";
-            menu_names[5]="TFA Survey";
-            menu_names[6] = "Logout";
+            menu_names[6]="TFA Survey";
+            menu_names[7] = "Logout";
+            menu_names[8] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             images[1] = R.drawable.ic_new_upload;
@@ -260,23 +273,25 @@ public class new_main_menu extends Fragment {
             images[3] = R.drawable.navigation;
             images[4] = R.drawable.ic_launcher_feedback;
             images[5]=R.drawable.ic_survey;
-            images[6]=R.drawable.ic_survey;
-            images[7] = R.drawable.ic_new_logout;
+            images[6] = R.drawable.ic_new_logout;
+            images[7]=R.drawable.ic_survey;
         }
         else if (userRole.equals("8")) {  //Stakeholder Version 1 as per SRS 18 Sept 2020
-            menu_names = new String[5];
-            images = new int[5];
+            menu_names = new String[6];
+            images = new int[6];
             menu_names[0] = "Download";
             menu_names[1] = "Upload";
             menu_names[2] = "Map";
             menu_names[3] = "Feedback";
             menu_names[4] = "Logout";
+            menu_names[5] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             images[1] = R.drawable.ic_new_upload;
             images[2] = R.drawable.navigation;
             images[3] = R.drawable.ic_launcher_feedback;
             images[4] = R.drawable.ic_new_logout;
+            images[5] = R.drawable.ic_new_logout;
         }
         else if (userRole.equals("9")) { //Stakeholder Version 2 as per SRS 18 Sept 2020
             menu_names = new String[7];
@@ -288,6 +303,7 @@ public class new_main_menu extends Fragment {
             menu_names[3] = "Map";
             menu_names[4] = "Feedback";
             menu_names[5] = "Logout";
+            menu_names[6] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             images[1] = R.drawable.ic_new_upload;
@@ -296,6 +312,7 @@ public class new_main_menu extends Fragment {
             images[3] = R.drawable.navigation;
             images[4] = R.drawable.ic_launcher_feedback;
             images[5] = R.drawable.ic_new_logout;
+            images[6] = R.drawable.ic_new_logout;
         }
         else {
 
@@ -313,6 +330,7 @@ public class new_main_menu extends Fragment {
             menu_names[8]="BE-Survey (VOTG)";
             menu_names[9]="TFA Survey";
             menu_names[10] = "Logout";
+            menu_names[11] = "Rainfall";
 
             images[0] = R.drawable.ic_download;
             /*images[1] = R.drawable.ic_new_selectobservation;*/
@@ -326,6 +344,7 @@ public class new_main_menu extends Fragment {
             images[8] = R.drawable.ic_survey;
             images[9] = R.drawable.ic_survey;
             images[10] = R.drawable.ic_new_logout;
+            images[11] = R.drawable.ic_new_logout;
         }
 
 

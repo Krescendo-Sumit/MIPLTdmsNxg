@@ -391,8 +391,8 @@ public void createList(String whereCondition) {
 
                 MapLocationModel mapLocationModel = new MapLocationModel();
                 String[] coordinates = jsonArray.getJSONObject(i).getString("coordinates").split(",");
-                String lat = coordinates[0].split("-")[0];
-                String lng = coordinates[0].split("-")[1];
+                String lat = coordinates[0].split("~")[0];
+                String lng = coordinates[0].split("~")[1];
                 mapLocationModel.setLattitude(lat);
                 mapLocationModel.setLongitude(lng);
                 mapLocationModel.setTrialCode(jsonArray.getJSONObject(i).getString("TRIL_CODE"));

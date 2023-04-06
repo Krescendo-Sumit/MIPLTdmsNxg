@@ -151,6 +151,18 @@
             android:text="Download Data" />
 
         <Button
+            android:id="@+id/btnDownloadDataLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/btnDownloadData"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonbordet"
+            android:drawableLeft="@drawable/downlaod"
+            android:gravity="center"
+            android:text="Download Location Data" />
+
+        <Button
             android:id="@+id/btnDownloadFeedbackData"
             android:layout_width="wrap_content"
             android:layout_height="40dp"

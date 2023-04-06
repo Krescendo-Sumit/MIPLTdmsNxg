@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Rainfall">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/layout_border">
+
+                    <Spinner
+                        android:id="@+id/sp_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="8dp"
+
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/border_style"
+                        android:ems="10"
+                        android:hint="Enter Farmer Name"
+                        android:inputType="text"
+                        android:text=""
+                        android:textColorLink="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/txt_readingdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtStartNote"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/border_style"
+                        android:drawableLeft="@drawable/calender"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:hint="Select Nursery Sowing Date"
+                        android:inputType="date"
+                        android:text=""
+                        android:textColorLink="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/txt_readingcount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtGeoVillage"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/border_style"
+                        android:ems="10"
+                        android:hint="Enter Reading"
+                        android:inputType="numberDecimal"
+                        android:maxLength="10"
+                        android:text=""
+                        android:textColorLink="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/txtStaff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtGeoVillage"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/border_style"
+                        android:ems="10"
+                        android:hint="Enter Usercode"
+                        android:inputType="text"
+                        android:maxLength="10"
+                        android:text=""
+                        android:textColorLink="@android:color/black" />
+                    <!--<EditText
+                        android:id="@+id/txtSowingDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtNursaryDate"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border_style"
+                        android:drawableLeft="@drawable/calender"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:hint="Select Date of Transplanting"
+                        android:inputType="date"
+                        android:text=""
+                        android:textColorLink="@android:color/black" />-->
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/layout_border"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/buttonbordet"
+
+                        android:drawableLeft="@drawable/save"
+                        android:text="Save" />
+
+                    <!--<Button
+                        android:id="@+id/btnUpdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:text="Update"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="199dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/buttonbordet"
+                        android:drawableLeft="@drawable/save"
+                        android:visibility="gone"/>-->
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

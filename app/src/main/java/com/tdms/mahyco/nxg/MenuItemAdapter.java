@@ -237,7 +237,18 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.ViewHo
                         context.startActivity(i);
                     }
                 });
-            } else if (menuPojosList.get(position).getMenu_name().equals("Logout")) {             //For Logout Button
+            }
+            else if (menuPojosList.get(position).getMenu_name().equals("Rainfall")) {
+                viewHolder.Crddownload.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(context, Rainfall.class);
+                        context.startActivity(i);
+                    }
+                });
+            }
+
+            else if (menuPojosList.get(position).getMenu_name().equals("Logout")) {             //For Logout Button
 
                 viewHolder.Crddownload.setOnClickListener(new View.OnClickListener() {
                     @Override
