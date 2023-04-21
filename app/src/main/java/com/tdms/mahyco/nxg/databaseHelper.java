@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class databaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "_id";
@@ -379,6 +380,49 @@ public class databaseHelper extends SQLiteOpenHelper {
         db.close();
         return true;
     }
+
+     public Vector[] getRainfallData()
+     {
+         Vector[] v;
+         try{
+
+                 SQLiteDatabase db = getWritableDatabase();
+                 Cursor mCursor = db.rawQuery("select * from tbl_rainfall_master",null);
+             v=new Vector[mCursor.getCount()];
+             int i=0;
+                 while(mCursor.moveToNext())
+                 {
+                     Vector vector=new Vector();
+                     vector.add(mCursor.getString(0));
+                     vector.add(mCursor.getString(1));
+                     vector.add(mCursor.getString(2));
+                     vector.add(mCursor.getString(3));
+                     vector.add(mCursor.getString(4));
+                     vector.add(mCursor.getString(5));
+                     vector.add(mCursor.getString(6));
+                     vector.add(mCursor.getString(7));
+                     vector.add(mCursor.getString(8));
+                     vector.add(mCursor.getString(9));
+                     vector.add(mCursor.getString(10));
+                     vector.add(mCursor.getString(11));
+                     vector.add(mCursor.getString(12));
+                     vector.add(mCursor.getString(13));
+                     vector.add(mCursor.getString(14));
+                     v[i]=vector;
+                 i++;
+                 }
+return v;
+
+                       }
+
+
+         catch(Exception e)
+         {
+return null;
+         }
+
+     }
+
 
 
     public boolean InsertUserRegistrationNew(String DisplayName, String User_Role, String User_pwd, String UserCode) {

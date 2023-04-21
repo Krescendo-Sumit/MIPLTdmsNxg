@@ -84,6 +84,7 @@ public class DownloadData extends Fragment implements MultiSelectionSpinner.OnMu
     //    public ProgressBar da;
     String year;
     String SERVER="https://sumit.free.beeceptor.com/getLocationDetails";
+   // String SERVER="https://mipltdmsmobileapp.mahyco.com/api/rainFall/getLocationMaster";
     String BASE="sumit.free.beeceptor.com";
     JSONObject globalJson;
 
@@ -251,9 +252,11 @@ globalJson=new JSONObject();
                             /*Added on 1st Sept, set flag 1 for selected year and season for future reference*/
                             String yearData = ddlYear.getSelectedItemsAsString().replace(" ", "");
                             String seasonData = ddlSesion.getSelectedItemsAsString().replace(" ", "");
-                            globalJson.put("UserId",txtStaff.getText().toString());
-                            globalJson.put("Year",yearData);
-                            globalJson.put("Session",seasonData);
+                            globalJson.put("USERCODE",txtStaff.getText().toString());
+                            globalJson.put("COUNTRYID",91);
+                            globalJson.put("YEAR",yearData);
+                         //   globalJson.put("Session",seasonData);
+                        //    globalJson.put("Session",seasonData);
                             new GetLocationData().execute();
 
 
@@ -1049,7 +1052,7 @@ globalJson=new JSONObject();
                 urlConnection.setRequestProperty("Content-Type", "application/json");
                 urlConnection.setRequestProperty("Authorization", "Bearer " +  mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
 
-                Log.i("pass", "3");
+                Log.i("pass", "3"+mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
                 urlConnection.setRequestProperty("Host", BASE);
                 urlConnection.connect();
 
@@ -1112,9 +1115,21 @@ globalJson=new JSONObject();
 
                 try {
                     Log.i("Details", "" + Content);
-                    databaseHelper1.deleledata("tbl_rainfall_location","");
-                    AddDataToLocalStorage(Content);
-
+                    if(Content!=null) {
+                        databaseHelper1.deleledata("tbl_rainfall_location", "");
+                        AddDataToLocalStorage(Content);
+                    }else
+                    {
+                        new AlertDialog.Builder(context)
+                                .setMessage("No Data found.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+                    }
 
                 } catch (Exception e) {
                     Log.i("Details", "" + e.getMessage());
@@ -1129,7 +1144,7 @@ globalJson=new JSONObject();
     private void AddDataToLocalStorage(String content) {
         try{
 
-            Toast.makeText(context, ""+content, Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(context, ""+content, Toast.LENGTH_SHORT).show();
             new AddLocationDataLocally().execute(content);
 
         }catch (Exception e)

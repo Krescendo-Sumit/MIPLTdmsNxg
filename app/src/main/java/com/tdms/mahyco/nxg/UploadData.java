@@ -1,7 +1,9 @@
 package com.tdms.mahyco.nxg;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,13 +44,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,9 +84,14 @@ public class UploadData extends Fragment {
     Button btnUpload2;
     Button btnUploadPLDSown;
     Button btnUploadFeedback;
+    Button btnUploadRainfall;
     TextView txttotalRemain, txttotalRemain1, tvUploadStatus;
     RadioButton rbtsowing, rbtobservation, rnd1, rnd2, rnd3, rndPLD, rbtobservationImage, rndFbk, rndFdbkNew;
     public Button btnUploadAllData; /*Added on 26 April 2021*/
+    //String SERVER="https://sumit.free.beeceptor.com/getLocationDetails";
+    String SERVER="https://mipltdmsmobileapp.mahyco.com/api/rainFall/createRainFall";
+    String BASE="mipltdmsmobileapp.mahyco.com";
+    JSONObject globalJson;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -98,6 +113,7 @@ public class UploadData extends Fragment {
         btnUpload2 = (Button) rootView.findViewById(R.id.btnUpload2);
         btnUploadPLDSown = (Button) rootView.findViewById(R.id.btnUploadPLDSown);
         btnUploadFeedback = (Button) rootView.findViewById(R.id.btnUploadFeedback);
+        btnUploadRainfall = (Button) rootView.findViewById(R.id.btnUploadRainfall);
 
         btnUploadAllData = (Button) rootView.findViewById(R.id.btnUploadAllData); /*Added on 26 April 2021*/
 
@@ -105,7 +121,7 @@ public class UploadData extends Fragment {
         // txttotalRemain1 = (TextView) rootView.findViewById(R.id.txtRemain1);
         //txtTagRemain=(TextView)rootView.findViewById(R.id.txtTagRemain);
 
-        tvUploadStatus = (TextView)rootView.findViewById(R.id.tv_upload_status);
+        tvUploadStatus = (TextView) rootView.findViewById(R.id.tv_upload_status);
 
         msclass = new Messageclass(this.getContext());
         cx = new CommonExecution(this.getContext());
@@ -267,6 +283,13 @@ public class UploadData extends Fragment {
             }
         });
 
+        btnUploadRainfall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadRainfallDetails();
+            }
+        });
+
         /*Added on 26 April 2021*/
         btnUploadAllData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -324,6 +347,48 @@ public class UploadData extends Fragment {
         recordshowFeedbackNew();
         //  new ObservationTaken_Async("Observationtaken").execute();
         return rootView;
+    }
+
+    private void uploadRainfallDetails() {
+        try {
+            Vector v[] = databaseHelper1.getRainfallData();
+            Toast.makeText(getContext(), "" + v.length, Toast.LENGTH_SHORT).show();
+
+            JSONArray jsonArray = new JSONArray();
+
+            for (int i = 0; i < v.length; i++) {
+                Vector vr = v[i];
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("RainfallId", 0);//: 1,
+                jsonObject.put("CONNTRYID", Integer.parseInt(vr.elementAt(1).toString()));//: 1,
+                jsonObject.put("LOCATIONID", Integer.parseInt(vr.elementAt(2).toString()));//: 1,
+                jsonObject.put("USERCODE", vr.elementAt(3).toString());//: "97260897",
+                jsonObject.put("APPCODE", vr.elementAt(4).toString());//: "string",
+                jsonObject.put("APPVERSION", vr.elementAt(5).toString());//: "string",
+                jsonObject.put("YEAR", Integer.parseInt(vr.elementAt(6).toString()));//: 2023,
+                jsonObject.put("MONTH", Integer.parseInt(vr.elementAt(7).toString()));//: 1,
+                jsonObject.put("DAY", Integer.parseInt(vr.elementAt(8).toString()));//: 1,
+                jsonObject.put("ACTUALDATE", vr.elementAt(9).toString());//: "2023-04-20T09:18:37.192Z",
+                jsonObject.put("READING", vr.elementAt(10).toString());//: "34.5",
+                jsonObject.put("CREATEDDATE", vr.elementAt(11).toString());//: "2023-04-20T09:18:37.192Z",
+                jsonObject.put("EXTRA_PARAM1", vr.elementAt(12).toString());//: "string",
+                jsonObject.put("EXTRA_PARAM2", vr.elementAt(13).toString());//: "string",
+                jsonObject.put("ISACTIVE", Boolean.parseBoolean(vr.elementAt(14).toString()));//: true
+                if(i==0)
+                jsonArray.put(jsonObject);
+            }
+           // String jsondata=" \"rainFallDtl\":{"+jsonArray.toString()+"}";
+           // JSONObject
+            globalJson=new JSONObject();
+            globalJson.put("rainFallDtl",jsonArray);
+            Log.i("Last",globalJson.toString());
+
+            new UploadRainfallData().execute();
+
+
+        } catch (Exception e) {
+            Log.i("error",e.getMessage());
+        }
     }
 
     public void UploadaImage2(String Functionname, String apiUrl) {
@@ -411,7 +476,7 @@ public class UploadData extends Fragment {
     }
 
     public void uploadObservationImage(String Functionname, String apiUrl) {
-        Log.d("uploadObservationImage","handleImageSyncResponse : Functionname:"+Functionname+" apiUrl:"+apiUrl);
+        Log.d("uploadObservationImage", "handleImageSyncResponse : Functionname:" + Functionname + " apiUrl:" + apiUrl);
         try {
             if (config.NetworkConnection()) {
                 // dialog.setMessage("Loading....");
@@ -451,7 +516,7 @@ public class UploadData extends Fragment {
                                 Log.d("Msg", e.getMessage());
                             }
                             //tvUploadStatus.setText("Uploading Observation Images taken, please wait..");
-                            Log.d("uploadObservationImage","handleImageSyncResponse : Functionname:"+Functionname+" apiUrl:"+apiUrl+" ImageName:"+ImageName+" Imagestring1:"+Imagestring1);
+                            Log.d("uploadObservationImage", "handleImageSyncResponse : Functionname:" + Functionname + " apiUrl:" + apiUrl + " ImageName:" + ImageName + " Imagestring1:" + Imagestring1);
                             syncSingleImage(Functionname, apiUrl, ImageName, Imagestring1);
 
                             cursor.moveToNext();
@@ -463,7 +528,7 @@ public class UploadData extends Fragment {
                         /*Fatal Exception: java.lang.RuntimeException
                           An error occurred while executing doInBackground()
                           Crashlytics error fixed on 8th Dec 2021 by commenting dialog show*/
-                        Log.d("MSG","Something went wrong, please try again later");
+                        Log.d("MSG", "Something went wrong, please try again later");
                     }
                 } else {
 
@@ -475,7 +540,7 @@ public class UploadData extends Fragment {
                  /*Fatal Exception: java.lang.RuntimeException
                           An error occurred while executing doInBackground()
                           Crashlytics error fixed on 8th Dec 2021 by commenting dialog show*/
-                Log.d("MSG","Internet network not available.");
+                Log.d("MSG", "Internet network not available.");
             }
             // dialog.dismiss();
         } catch (Exception ex) {
@@ -484,7 +549,7 @@ public class UploadData extends Fragment {
                           An error occurred while executing doInBackground()
                           Crashlytics error fixed on 8th Dec 2021 by commenting dialog show*/
             Log.d("Msg", ex.getMessage());
-            Log.d("MSG","Something went wrong, please try again later");
+            Log.d("MSG", "Something went wrong, please try again later");
 
         }
     }
@@ -625,7 +690,7 @@ public class UploadData extends Fragment {
         }*/
 
         if (Config.NetworkConnection()) {
-            Log.d("PLD_DATA","Inside uploadPLDNotSownData");
+            Log.d("PLD_DATA", "Inside uploadPLDNotSownData");
             //dialog.setMessage("Loading....");
             //dialog.show();
             String str = null;
@@ -635,14 +700,14 @@ public class UploadData extends Fragment {
             int count = cursor.getCount();
 
             if (count > 0) {
-                Log.d("PLD_DATA","Inside uploadPLDNotSownData count > 0 :"+searchQuery);
+                Log.d("PLD_DATA", "Inside uploadPLDNotSownData count > 0 :" + searchQuery);
 
                 try {
                     byte[] objAsBytes = null;//new byte[10000];
                     JSONObject object = new JSONObject();
                     try {
-                        object.put("Table1", databaseHelper1.getResultsPLD(searchQuery,userCode));
-                        Log.d("PLD_DATA","OBJECT : "+object.toString());
+                        object.put("Table1", databaseHelper1.getResultsPLD(searchQuery, userCode));
+                        Log.d("PLD_DATA", "OBJECT : " + object.toString());
                     } catch (JSONException e) {
                         Log.d("Msg", e.getMessage());
                     }
@@ -654,23 +719,23 @@ public class UploadData extends Fragment {
                     //dialog.setMessage("Loading. Please wait...");
                     //dialog.show();
                     //tvUploadStatus.setText("Uploading PLDNotSown Data please wait..");
-                    Log.d("PLD_DATA","Calling UploadDataServerPLDNOTSOWN=============");
+                    Log.d("PLD_DATA", "Calling UploadDataServerPLDNOTSOWN=============");
                     //str = new UploadDataServerPLDNOTSOWN(Functionname, objAsBytes).execute("").get();
                     str = UploadDataServerPLDNOTSOWN(Functionname, objAsBytes);//.execute("").get();
-                    Log.d("PLD_DATA","Calling UploadDataServerPLDNOTSOWN RESULT :"+str);
+                    Log.d("PLD_DATA", "Calling UploadDataServerPLDNOTSOWN RESULT :" + str);
                     //End
                     cursor.close();
                     //End
                     if (str.contains("True")) {
 
-                       // dialog.dismiss();
+                        // dialog.dismiss();
                         //tvUploadStatus.setText("PLDNotSown Data Uploaded Successfully..");
                         //msclass.showMessage("Records Uploaded successfully");
                         String searchQuery1 = "update PLDNotSown set rowSyncStatus = '1' where rowSyncStatus='0'";
                         databaseHelper1.runQuery(searchQuery1);
-                       // recordshowPLD();
+                        // recordshowPLD();
                     } else {
-                       // msclass.showMessage(str);
+                        // msclass.showMessage(str);
                         //dialog.dismiss();
                     }
 
@@ -680,8 +745,8 @@ public class UploadData extends Fragment {
 
                 }
             } else {
-               // dialog.dismiss();
-               // msclass.showMessage("Data not available for Uploading ");
+                // dialog.dismiss();
+                // msclass.showMessage("Data not available for Uploading ");
                 //dialog.dismiss();
 
             }
@@ -942,7 +1007,7 @@ public class UploadData extends Fragment {
 
 
         } catch (Exception ex) {
-           // msclass.showMessage("Something went wrong, please try again later");
+            // msclass.showMessage("Something went wrong, please try again later");
             rndFbk.setText("Feedback records  = 0");
             Log.d("Msg", ex.getMessage());
             dialog.dismiss();
@@ -1173,8 +1238,7 @@ public class UploadData extends Fragment {
                     if (cursor.getString(cursor.getColumnIndex("dateOfVisitSinglePlot")) != null) {
                         String dateOfVisitSinglePlot = cursor.getString(cursor.getColumnIndex("dateOfVisitSinglePlot"));
                         model.setDateOfVisitSinglePlot(dateOfVisitSinglePlot);
-                    }
-                    else{
+                    } else {
                         Log.d("Survey", "dateOfVisitSinglePlot NOT EXIST");
                     }
 
@@ -1242,7 +1306,7 @@ public class UploadData extends Fragment {
         String isSynched = "1"; //Update data as synched
         Date entrydate = new Date();
         String InTime = new SimpleDateFormat("dd-MM-yyyy").format(entrydate);
-        databaseHelper1.updateTrialFeedback(model.getTrialCode(), model.getPlotNo(), isSynched, model.getRank(), model.getComment(), model.getIsSubmitted(),InTime);
+        databaseHelper1.updateTrialFeedback(model.getTrialCode(), model.getPlotNo(), isSynched, model.getRank(), model.getComment(), model.getIsSubmitted(), InTime);
 
     }
 
@@ -1271,7 +1335,7 @@ public class UploadData extends Fragment {
         Cursor cursor1 = databaseHelper1.getReadableDatabase().rawQuery(searchQuery1, null);
         int count = cursor1.getCount();
         cursor1.close();
-        Log.d("recordshow1","handleImageSyncResponse : count: "+count);
+        Log.d("recordshow1", "handleImageSyncResponse : count: " + count);
         if (count > 0) {
             rbtobservationImage.setText("Pending Observation Images To Upload = " + count);
             rbtobservationImage.setEnabled(true);
@@ -1372,7 +1436,7 @@ public class UploadData extends Fragment {
                     try {
                         objAsBytes = object.toString().getBytes("UTF-8");
 
-                        Log.d("Observation","objAsBytes : "+objAsBytes);
+                        Log.d("Observation", "objAsBytes : " + objAsBytes);
 
                     } catch (UnsupportedEncodingException e) {
                         Log.d("Msg", e.getMessage());
@@ -1601,7 +1665,7 @@ public class UploadData extends Fragment {
             if (progressDialog != null) {
                 progressDialog.dismiss();
             }
-            Log.d("PLDNotSown","PLDNotSown onPostExecute : "+tag);
+            Log.d("PLDNotSown", "PLDNotSown onPostExecute : " + tag);
             if (tag.equals("PLDNotSown")) {
                 recordshowPLD();
             }
@@ -1810,8 +1874,8 @@ public class UploadData extends Fragment {
                 jsonParam.put("access_token", mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
                 jsonParam.put("finalmessage", mPref.getString(AppConstant.finalmessage, ""));
                 jsonboj.put("Table", jsonParam);
-                Log.d("OBSERVATION","Complete URL :"+AppConstant.UPLOAD_OBSERVATION_URL);
-                Log.d("OBSERVATION","Complete OBJECT :"+jsonboj.toString());
+                Log.d("OBSERVATION", "Complete URL :" + AppConstant.UPLOAD_OBSERVATION_URL);
+                Log.d("OBSERVATION", "Complete OBJECT :" + jsonboj.toString());
                 return HttpUtils.POSTJSON(AppConstant.UPLOAD_OBSERVATION_URL,
                         jsonboj, mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
 
@@ -2252,7 +2316,7 @@ public class UploadData extends Fragment {
 
 
     public void handleImageSyncResponse(String function, String resultout, String ImageName, String id) {
-        Log.d("handleImageSyncResponse","function :"+ function +" resultout:"+resultout+ " ImageName:"+ImageName+ " id:"+id);
+        Log.d("handleImageSyncResponse", "function :" + function + " resultout:" + resultout + " ImageName:" + ImageName + " id:" + id);
 
         if (function.equals("Observationtaken")) {
             if (resultout.contains("True")) {
@@ -2371,7 +2435,7 @@ public class UploadData extends Fragment {
 
             try {
                 String resultout = builder.toString().trim();
-                Log.d("Observationtaken","Observationtaken : resultout: "+resultout);
+                Log.d("Observationtaken", "Observationtaken : resultout: " + resultout);
 
                 if (resultout.contains("True")) {
                     if (Funname.equals("Observationtaken")) {
@@ -2381,7 +2445,7 @@ public class UploadData extends Fragment {
 
                 } else {
                     //msclass.showMessage(resultout + "--E");
-                    Log.d("Observationtaken","Else Observationtaken : resultout: "+resultout);
+                    Log.d("Observationtaken", "Else Observationtaken : resultout: " + resultout);
                     showUserMsg(resultout); /*Updated on 9th March 2021*/
                 }
 
@@ -2484,13 +2548,13 @@ public class UploadData extends Fragment {
 
                     jsonboj.put("Table", jsonParam);
                     //Log.d("Survey", "jsonboj = " + jsonboj.toString());
-                    Log.d("UploadFeed","UploadTrialFeedbackToServer URL : "+AppConstant.UPLOAD_TRIAL_FEEDBACK_URL);
-                    Log.d("UploadFeed","UploadTrialFeedbackToServer JSON OBJ : "+jsonboj);
+                    Log.d("UploadFeed", "UploadTrialFeedbackToServer URL : " + AppConstant.UPLOAD_TRIAL_FEEDBACK_URL);
+                    Log.d("UploadFeed", "UploadTrialFeedbackToServer JSON OBJ : " + jsonboj);
 
                     str = HttpUtils.POSTJSON(AppConstant.UPLOAD_TRIAL_FEEDBACK_URL,
                             jsonboj, "");
                     Log.d("Survey", "str = " + str);
-                    Log.d("UploadFeed","UploadTrialFeedbackToServer RESPONSE : "+str);
+                    Log.d("UploadFeed", "UploadTrialFeedbackToServer RESPONSE : " + str);
                     return str;
                 } catch (Exception e) {
                     Log.d("MSG", e.getMessage());
@@ -2562,12 +2626,12 @@ public class UploadData extends Fragment {
 
 
     /*Added on 31st March 2022*/
-    private String UploadDataServerPLDNOTSOWN(String funName, byte[] objAsBytes){
-        Log.d("PLD_DATA","Inside doInBackground UploadDataServerPLDNOTSOWN");
+    private String UploadDataServerPLDNOTSOWN(String funName, byte[] objAsBytes) {
+        Log.d("PLD_DATA", "Inside doInBackground UploadDataServerPLDNOTSOWN");
 
         try {
-            Log.d("PLD_DATA","Inside UploadDataServer PLDNOTSOWN");
-            Log.d("PLD_DATA","objAsBytes :"+objAsBytes);
+            Log.d("PLD_DATA", "Inside UploadDataServer PLDNOTSOWN");
+            Log.d("PLD_DATA", "objAsBytes :" + objAsBytes);
 
             // encode image to base64 so that it can be picked by saveImage.php file
             String encodeImage = Base64.encodeToString(objAsBytes, Base64.DEFAULT);
@@ -2589,7 +2653,7 @@ public class UploadData extends Fragment {
                     jsonboj, mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
 
         } catch (Exception ex) {
-            Log.d("MSG","PLD_DATA : "+ex.getMessage());
+            Log.d("MSG", "PLD_DATA : " + ex.getMessage());
         }
         return null;
     }
@@ -2675,5 +2739,142 @@ public class UploadData extends Fragment {
 
         }
     }*/
+
+    private class UploadRainfallData extends AsyncTask<String, Void, Void> {
+
+        private final HttpClient Client = new DefaultHttpClient();
+        private String Content;
+        private String Error = null;
+        private ProgressDialog Dialog = new ProgressDialog(getContext());
+        private String type = "";
+
+        protected void onPreExecute() {
+            // NOTE: You can call UI Element here.
+
+            //UI Element
+            //   uiUpdate.setText("Output : ");
+            Dialog.setMessage("Please Wait..");
+            Dialog.show();
+            //pb.setVisibility(View.VISIBLE);
+        }
+
+        // Call after onPreExecute method
+        protected Void doInBackground(String... urls) {
+            StringBuilder sb = new StringBuilder();
+
+            HttpURLConnection urlConnection = null;
+            try {
+
+
+                Log.i("pass", "2");
+                URL url = new URL(SERVER);
+
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setDoOutput(true);
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setUseCaches(false);
+                urlConnection.setConnectTimeout(10000);
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setRequestProperty("Content-Type", "application/json");
+                urlConnection.setRequestProperty("Authorization", "Bearer " +  mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
+
+                Log.i("pass", "3"+mPref.getString(AppConstant.ACCESS_TOKEN_TAG, ""));
+                urlConnection.setRequestProperty("Host", BASE);
+                urlConnection.connect();
+
+                JSONObject jsonParam = globalJson;
+                // jsonParam.put("UserCode", tbmcode);
+
+                DataOutputStream printout;
+                Log.i("pass", "5");
+                OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());
+                out.write(jsonParam.toString());
+                Log.i("content:", jsonParam.toString());
+                //Toast.makeText(getApplicationContext(),jsonParam.toString(),Toast.LENGTH_LONG).show();
+                out.close();
+                int HttpResult = urlConnection.getResponseCode();
+                if (HttpResult == HttpURLConnection.HTTP_OK) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(
+                            urlConnection.getInputStream(), "utf-8"));
+                    String line = null;
+                    while ((line = br.readLine()) != null) {
+                        sb.append(line + "\n");
+                    }
+                    br.close();
+
+                    Log.i("content:", sb.toString());
+                    //    Toast.makeText(getApplicationContext(), "" + sb.toString(), Toast.LENGTH_SHORT).show();
+                    Content = sb.toString();
+                } else {
+                    Log.i("ResponseMsg:", urlConnection.getResponseMessage());
+                }
+            } catch (MalformedURLException e) {
+
+                e.printStackTrace();
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } finally {
+                if (urlConnection != null)
+                    urlConnection.disconnect();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(Void unused) {
+            // NOTE: You can call UI Element here.
+
+            // Close progress dialog
+            Dialog.dismiss();
+
+            if (Error != null) {
+
+                //  uiUpdate.setText("Output : "+Error);
+
+            } else {
+                //pb.setVisibility(View.GONE);
+                //   uiUpdate.setText("Output : "+Content);
+                // loadFromServer(Content.toString().trim());
+
+                try {
+                    Log.i("Details", "" + Content);
+                    if(Content!=null) {
+                      //  databaseHelper1.deleledata("tbl_rainfall_location", "");
+                        //AddDataToLocalStorage(Content);
+                        new AlertDialog.Builder(getContext())
+                                .setMessage(Content)
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+                    }else
+                    {
+                        new AlertDialog.Builder(getContext())
+                                .setMessage("Something went wrong.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+                    }
+
+                } catch (Exception e) {
+                    Log.i("Details", "" + e.getMessage());
+
+
+                }
+            }
+        }
+
+    }
+
 
 }
